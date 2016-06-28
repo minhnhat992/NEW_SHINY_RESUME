@@ -2,8 +2,8 @@ name: NEW_SHINY_RESUME
 account: nhatbui
 server: shinyapps.io
 appId: 110846
-bundleId: 491092
+bundleId: 491848
 url: https://nhatbui.shinyapps.io/NEW_SHINY_RESUME/
-when: 1467089265.71526
+when: 1467146402.41138
 asMultiple: FALSE
 asStatic: FALSE

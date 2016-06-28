@@ -1,3 +1,19 @@
+library(shiny)
+library(shinydashboard)
+library(knitr)
+library(data.table)
+library(plyr)
+library(dplyr)
+library(pROC)
+library(caret)
+library(utils)
+library(lubridate)
+library(doParallel)
+library(ggplot2)
+library(grid)
+library(jpeg)
+library(RCurl)
+
 load("raw.rda")
 
 #create short chart for kobe

@@ -1,19 +1,3 @@
-library(shiny)
-library(shinydashboard)
-library(knitr)
-library(data.table)
-library(plyr)
-library(dplyr)
-library(pROC)
-library(caret)
-library(utils)
-library(lubridate)
-library(doParallel)
-library(ggplot2)
-library(grid)
-library(jpeg)
-library(RCurl)
-
 source("load.R")
 
 
@@ -29,15 +13,7 @@ dbHeader <- dashboardHeader(
 
 dbSide <- dashboardSidebar(
   
-  sidebarSearchForm(
-    
-    textId = "search",
-    
-    buttonId = "search_button",
-    
-    label = "search",
-    
-    icon = icon("search")
+  sidebarSearchForm( textId = "search",  buttonId = "search_button", label = "search", icon = icon("search")
     
     ),
   
@@ -86,54 +62,70 @@ dbBody <- dashboardBody(
             
             HTML('<iframe src=\"https://drive.google.com/file/d/0B9pUvwmm7j8_U0F0R0swYzZPUlU/preview\" width=\"900\" height=\"900\"></iframe>')),
     
+    tabItem(tabName = "titanic",
+            
+            tabsetPanel(
+              
+              tabPanel("Overview"),
+              
+              tabPanel("EDA"),
+              
+              tabPanel("Algorithm"),
+              
+              tabPanel("Result"))),
+    tabItem(tabName = "insurance",
+            
+            tabsetPanel(
+              tabPanel("Overview"),
+              
+              tabPanel("EDA"),
+              
+              tabPanel("Algorithm"),
+              
+              tabPanel("Result"))),
+    
     tabItem(tabName = "movie",
             
-            withMathJax(includeMarkdown("www/Movie_Scraping.Rmd"))
-
-            ),
-
+            withMathJax(includeMarkdown("www/Movie_Scraping.Rmd"))),
+# kobe tab -------
     tabItem(tabName = "kobe",
             
-            includeMarkdown("www/kobe.Rmd"),
-            
-            fluidPage(
+            tabsetPanel(
               
-              titlePanel("Kobe Bryant's Short Chart"),
-              
-              sidebarLayout(
-                
-                sidebarPanel( 
-                  
-                  selectInput("MatchUp", 
-                              
-                              label = h3("Select Matchup"), 
-                              
-                              choices = c(unique(as.character(raw$opponent)), "None"),
-                              
-                              selected = "None"),
-                  
-                  sliderInput("slider",
-                              
-                              label = h3("Choose year"),
-                              
-                              min = unique(min(raw$year)),
-                              
-                              max = unique(max(raw$year)),
-                              
-                              value = 1996,
-                              
-                              animate = TRUE,
-                              
-                              sep = ""
-                  )),
-                
-                mainPanel("Kobe's Short Chart based on selected year", 
-                          
-                          plotOutput("shortchart", height = "800px" ))
-              )
-            ))))
+              tabPanel("EDA",
+                       
+                       includeMarkdown("www/kobe.Rmd"),
+                       
+                       fluidPage(
+                         
+                         titlePanel("Kobe Bryant's Short Chart"),
+                         
+                         sidebarLayout(
+                           
+                           sidebarPanel( 
+                             
+                             selectInput("MatchUp",  label = h3("Select Matchup"), 
+                                         
+                                         choices = c(unique(as.character(raw$opponent)), "None"),
+                                         
+                                         selected = "None"),
+                             
+                             sliderInput("slider", label = h3("Choose year"),
+                                         
+                                         min = unique(min(raw$year)),
+                                         
+                                         max = unique(max(raw$year)),
+                                         
+                                         value = 1996,
+                                         
+                                         animate = TRUE,
+                                         
+                                         sep = "" )),
+                           
+                           mainPanel("Kobe's Short Chart based on selected year", 
+                                     
+                                     plotOutput("shortchart", height = "800px" )))))))))
 
-    
   
 
 #UI -----
@@ -157,14 +149,14 @@ server <- function(input, output){
     sub <- subset(raw, year == input$slider)
     if (input$MatchUp == "None"){
       ggplot(sub, aes(x=loc_x, y=loc_y)) + 
-        annotation_custom(court, -250, 250, -50, 420) +
+        annotation_custom(court) +
         geom_point(aes(colour = shot_made_flag, shape = shot_made_flag)) +
         xlim(-250, 250) +
         ylim(-50, 420)
     } else {
       sub2 <- subset(sub, opponent == input$MatchUp)
       ggplot(sub2, aes(x=loc_x, y=loc_y)) + 
-        annotation_custom(court, -250, 250, -50, 420) +
+        annotation_custom(court) +
         geom_point(aes(colour = shot_made_flag, shape = shot_made_flag)) +
         xlim(-250, 250) +
         ylim(-50, 420)}

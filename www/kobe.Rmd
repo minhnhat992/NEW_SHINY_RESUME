@@ -1,5 +1,7 @@
 
-## Data analysis for Kobe Bryant's career short chart
+## A brief analysis for Kobe Bryant's career
+
+### Kobe Bryant has been my favourite player for years and it was sad day to see him play his final games. That said, watching kobe poured 60 points on the Jazz gave me an inspiration of analyzing his career. Getting the data from the Kaggle competition and NBA APIs, I try visualize kobe's career through various "fun" charts and maps 
 
 ### In this tab, you will have the chance too see and interact with different data analysis for the Kobe's performance through out his career. 
   
