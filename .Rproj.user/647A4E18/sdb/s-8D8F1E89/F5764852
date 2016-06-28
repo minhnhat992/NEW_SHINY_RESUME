@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "load(\"raw.rda\")\n\n#create short chart for kobe\ncourt_img <- \"http://robslink.com/SAS/democd54/nba_court_dimensions.jpg\"\ncourt <- rasterGrob(readJPEG(getURLContent(court_img)),\n                    width=unit(1,\"npc\"), height=unit(1,\"npc\"))\n\n\n\n\n",
+    "created" : 1467084564636.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2018508911",
+    "id" : "F5764852",
+    "lastKnownWriteTime" : 1467086574,
+    "last_content_update" : 1467086574981,
+    "path" : "F:/R/NEW_SHINY_RESUME/load.R",
+    "project_path" : "load.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

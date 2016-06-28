@@ -1,0 +1,6 @@
+
+## Data analysis for Kobe Bryant's career short chart
+
+### In this tab, you will have the chance too see and interact with different data analysis for the Kobe's performance through out his career. 
+  
+### The main dataset was retrieved from Kaggle's data competition (https://www.kaggle.com/c/kobe-bryant-shot-selection/data). However, you can download any NBA-related data by using its API, which will be explained the tab "API"
