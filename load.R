@@ -2,34 +2,12 @@ library(shiny)
 library(shinydashboard)
 library(knitr)
 library(data.table)
-library(plyr)
-library(dplyr)
-library(pROC)
-library(caret)
-library(utils)
-library(lubridate)
-library(doParallel)
 library(ggplot2)
 library(grid)
 library(jpeg)
 library(RCurl)
 library(DT)
-library(doParallel)
-library(stepPlr)
-library(pROC)
-library(ROCR)
-library(psych)
-library(ROSE)
-library(caret)
-library(Hmisc)
-library(plyr)
-library(dplyr)# for %>% 
-library(data.table)
-library(sqldf)
-library(gdata)
-library(utils)#read csv
-library(car)# for multicollinearity
-library(MASS)#chi-square test of independence
+
 
 
 load("raw.rda")

@@ -5,27 +5,23 @@ source("load.R")
 
 dbHeader <- dashboardHeader(
   
-  title = "Nhat Bui Profile"
+  title = h4("Nhat Bui's Online Demo")
   
 )
 
 # DB SIDEBAR ------
 
 dbSide <- dashboardSidebar(
-  
-  sidebarSearchForm( textId = "search",  buttonId = "search_button", label = "search", icon = icon("search")
-    
-    ),
-  
+
   sidebarMenu(
     
-    menuItem("Overview", tabName = "Overview", icon = icon("universal-access")),
+    menuItem("About Me", tabName = "Overview", icon = icon("universal-access")),
     
     menuItem("My Resume", tabName = "resume", icon = icon("user")),
     
     menuItem("Personal Project", tabName = "personal project", icon = icon("spinner"),
              
-             menuSubItem("Kobe Shots", tabName = "kobe", icon = icon("bullhorn")),
+             menuSubItem("Kobe's Shots", tabName = "kobe", icon = icon("bullhorn")),
              
              menuSubItem("Movie Scraping", tabName = "movie", icon = icon("film")),
              
@@ -48,13 +44,13 @@ dbBody <- dashboardBody(
 #Overview -------    
     tabItem(tabName = "Overview",
             
-            h1("Brief Introduction"),
+            h1("About Me"),
             
-            h3("Hi everyone, I am an aspiring data scientist in NYC. Currently, I am a grad student at Pace University and interning as a data scientist  at Sawyer Studios marketing company.
+            h3("Hi everyone, I am an aspiring data scientist in NYC. Currently, I am a grad student at Pace University and interning as a data scientist at Sawyer Studios marketing company.
 
                My goal would be working as a data analyst/scientist in NYC. I welcome everyone to connect to me on LinkedIn."),
             
-            h3("This is my self-created dasboard which highlights my best personal data science projects as well as my resume"),
+            h3("This is my self-created online resume/demo which highlights my best personal data science projects as well as my resume"),
             
             h3("Simply click on the tab menu to check out my work")),
 # Resume -----    
